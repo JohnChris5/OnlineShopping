@@ -1,0 +1,14 @@
+version: '3'  # Docker Compose version
+
+services:  # List of services
+  gaara-home:  # Service named gaara
+    image: uzmakki  # Docker image to be used for the service
+    ports:
+      - "8085:80"  # Port mapping: host_port:container_port
+    restart: always  # Restart policy for the service
+    container_name: gaara-home
+  nginx:
+    image: johnchris5/dev:latest
+    ports:
+      - "8090:80"
+    restart: always
