@@ -1,14 +1,12 @@
 version: '3'
-
 services:
-  gaara-home:
-    image: uzmakki
+  dev:
+    image: johnchris5/dev
     ports:
-      - "8085:80"
-    restart: always
-    container_name: gaara-home
-  nginx:
-    image: johnchris5/dev:latest
+      - "8080:80"
+    container_name: guvi-dev
+  prod:
+    image: johnchris5/prod
     ports:
-      - "8090:80"
-    restart: always
+      - "80:80"
+    container_name: guvi-prod
