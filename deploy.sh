@@ -1,1 +1,1 @@
-docker-compose up -d  gaara-home
+docker-compose up -d  prod
