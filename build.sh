@@ -1,1 +1,1 @@
-docker build -t uzmakki .
+ docker build -t dev-image .
