@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ "$GIT_BRANCH" == "origin/dev" ]]; then
+    docker build -t dev-image .
+    if [ $? -eq 0 ]; then
+        docker tag dev-image johnchris5/dev:latest
+        docker login -u johnchris5 -p dckr_pat_LysDpV7-6Otu****Zta89S4eOYo
+        docker push johnchris5/dev:latest
+    else
+        echo "Docker build failed for dev branch. Exiting..."
+        exit 1
+    fi
+fi
+
+if [[ "$GIT_BRANCH" == "origin/main" ]]; then
+    docker build -t prod-image .
+    if [ $? -eq 0 ]; then
+        docker tag prod-image johnchris5/prod:latest
+        docker login -u johnchris5 -p dckr_pat_LysDpV7-6Ot****Zta89S4eOYo
+        docker push johnchris5/prod:latest
+    else
+        echo "Docker build failed for main branch. Exiting..."
+        exit 1
+    fi
+fi
